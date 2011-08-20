@@ -26,7 +26,7 @@ discussed by Wang and Chen (1998).
 Wang F, Chen J (1998). "Capability index using principal components analysis." Quality Engineering, 11, 21-27.
 }
 \examples{
-data(dataset2)
+data("dataset2")
 ## maybe str(dataset2) ; plot(dataset2) ...
 }
 \keyword{datasets}

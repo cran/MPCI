@@ -45,9 +45,9 @@ Chen H (1994). "A multivariate process Capability index over a rectangular solid
 
 Hubele N, Shahriari H, Cheng C (1991). "A bivariate process Capability vector". In JB. Keats and DC.Montgomery (Eds.) "Statistical Process Control in Manufacturing".Marcel Dekker,New York.
 
-Jackson, J E (1991). "A user's guide to principal components".John Wiley and Sons.
+Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
 
-Rencher,A C (2002) "Methods of Multivariate Analysis". Second edition. John Wiley and Sons.
+Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
 Scagliarini M (2011). "Multivariate process capability using principal component analysis in the presence of measurement errors." AStA Advances in Statistical Analysis, 95, 346-357.
 
@@ -68,14 +68,15 @@ Proceedings of the Joint Statistical Meetings of the American Statistical Associ
 \keyword{ package }
 \seealso{ MEWMA and MCUSUM package}
 \examples{
-alpha<-0.0027
-Target<-c(2.2, 304.8, 304.8) 
-LSL<-c(2.1, 304.5, 304.5)
-USL<-c(2.3, 305.1, 305.1)
-x<-matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
+alpha <- 0.0027
+Target <- c(2.2, 304.8, 304.8) 
+LSL <- c(2.1, 304.5, 304.5)
+USL <- c(2.3, 305.1, 305.1)
+x <- matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
 ,304.728,304.704,304.713,304.721,304.724,304.670,304.699,304.791,304.737
 ,304.859,304.798,304.746,304.680,304.719,304.767,304.792,304.753,304.816
-,304.754,304.822),nrow=10)
+,304.754,304.822),nrow = 10) # Matrix with three columns (quality 
+# characteristics) and ten rows (number observations) 
 
 #Computing the Shahriari et al. (1995) Multivariate Capability Vector
 shahMPCI(x,LSL,USL,Target,alpha)
@@ -84,18 +85,18 @@ shahMPCI(x,LSL,USL,Target,alpha)
 taamMPCI(x,LSL,USL,Target,alpha)
 
 #Computing the Wang and Chen (1998) Multivariate Process Capability Indices(MPCI)
-alpha=0.05
+alpha = 0.05
 wangMPCI(x,LSL,USL,Target)
 
 #Performing the Xekalaki and Perakis (2002) MPCI.
 xekeMPCI(x,LSL,USL,
          Target,
-		 Method=5)
+		 Method = 5)
 
 #Computing the Wang (2005) MPCI
 wangwMPCI(x,LSL,USL,
          Target,
-		 Method=1,
-		 alpha=0.05)
+		 Method = 1,
+		 alpha = 0.05)
 
 }

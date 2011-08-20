@@ -28,7 +28,7 @@ Dataset used in examples.
 %%  ~~ possibly secondary sources and usages ~~
 }
 \examples{
-data(dataset1)
+data("dataset1")
 ## maybe str(dataset1) ; plot(dataset1) ...
 }
 \keyword{datasets}

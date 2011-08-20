@@ -63,7 +63,7 @@ for( i in 1:nrow(spec)){
 ifelse (a==0,LI<-1,LI<-0)
 
 ###Vector
-outList = list ("Shahriari(1995) Multivariate Capability Vector","CpM"=CpM,"PV"=PV,"LI"=LI)
+outList = list ("Shahriari et al. (1995) Multivariate Capability Vector","CpM"=CpM,"PV"=PV,"LI"=LI)
 print(outList)
 
 }

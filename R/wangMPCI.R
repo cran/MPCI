@@ -185,7 +185,7 @@ MCpke<-(prod(MatCpke[1:npc]))^(1/npc)
 MCpme<-(prod(MatCpme[1:npc]))^(1/npc)
 MCpmke<-(prod(MatCpmke[1:npc]))^(1/npc)
 
-outList = list ("Wang & Chen(1998) Multivariate Process Capability Indices(PCI) based on PCA",
+outList = list ("Wang and Chen (1998) Multivariate Process Capability Indices(PCI) based on PCA",
 "number of principal components"=npc,"MCp"=MCpe,"MCpk"=MCpke,"MCpm"=MCpme,"MCpmk"=MCpmke)
 print(outList)
 

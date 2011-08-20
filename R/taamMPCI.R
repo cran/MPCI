@@ -26,7 +26,7 @@ Cp<-VTR/VE
 D<-(1+n/(n-1)*(t(Target-means)%*%solve(s)%*%(Target-means)))^0.5
 MCpm<-Cp/D
 
-outList = list ("Taam(1993) Multivariate Capability Index (MCpm)","MCpm"=MCpm)
+outList = list ("Taam et al. (1993) Multivariate Capability Index (MCpm)","MCpm"=MCpm)
 print(outList)
 }
 

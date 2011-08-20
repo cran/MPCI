@@ -84,9 +84,9 @@ The function return the followings indices: Mcp, MCpk, MCpm and MCpmk.
 Anderson, T W (1963). "Asymptotic theory for principal component analysis". 
 The Annals of Mathematical Statistics, 34, 122-148.
 
-Jackson, J E (1991). "A user's guide to principal components".John Wiley and Sons.
+Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
 
-Rencher,A C (2002) "Methods of Multivariate Analysis". Second edition. John Wiley and Sons.
+Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
 Xekalaki E, Perakis M (2002). "The Use of principal component analysis in the assessment of process capability indices." 
 Proceedings of the Joint Statistical Meetings of the American Statistical Association, The Institute of Mathematical Statistics, The Canadian Statistical Society. New York.
@@ -111,19 +111,19 @@ Principal Component Analysis. Second edition. Springer Series in Statistics.
 \examples{
 ######Example 1########
 
-data(dataset1)
-x<-dataset1
-Target<-c(30, 70, 15, 12, 120) 
-LSL<-c(24, 60, 10, 8, 100)
-USL<-c(36, 80, 20, 16, 140)
-alpha<-0.05
+data("dataset1")
+x <- dataset1
+Target <- c(30, 70, 15, 12, 120) 
+LSL <- c(24, 60, 10, 8, 100)
+USL <- c(36, 80, 20, 16, 140)
+alpha <- 0.05
 
 # Computing the Xekalaki and Perakis (2002) Multivariate Process Capability Indices (MPCI)
 # using the Bartlett's test to select how many principal components.
 xekeMPCI(x,LSL,USL,
          Target,
-		 alpha=alpha,
-		 Method=4)
+		 alpha = alpha,
+		 Method = 4)
 
 # Computing the Xekalaki and Perakis (2002) using the default method (Method 1 or
 # Percentage) and value of alpha
@@ -132,14 +132,15 @@ xekeMPCI(x,LSL,USL,Target)
 
 ######Example 2########
 
-npc<-2
-Target<-c(2.2, 304.8, 304.8) 
-LSL<-c(2.1, 304.5, 304.5)
-USL<-c(2.3, 305.1, 305.1)
-x<-matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
+npc <- 2
+Target <- c(2.2, 304.8, 304.8) 
+LSL <- c(2.1, 304.5, 304.5)
+USL <- c(2.3, 305.1, 305.1)
+x <- matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
 ,304.728,304.704,304.713,304.721,304.724,304.670,304.699,304.791,304.737
 ,304.859,304.798,304.746,304.680,304.719,304.767,304.792,304.753,304.816
-,304.754,304.822),nrow=10)
+,304.754,304.822),nrow = 10) # Matrix with three columns (quality 
+# characteristics) and ten rows (number observations) 
 
 # Performing the Xekalaki and Perakis (2002) 
 # Multivariate Process Capability Indices.
@@ -148,7 +149,7 @@ xekeMPCI(x,LSL,USL,
 		 npc)
 
 # Working with the MCpmk index
-a<-xekeMPCI(x,LSL,USL,
+a <- xekeMPCI(x,LSL,USL,
          Target,
 		 npc)$MCpmk; print(a)
 

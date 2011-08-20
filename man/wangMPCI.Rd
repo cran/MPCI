@@ -86,9 +86,9 @@ The function return the followings indices: Mcp, MCpk, MCpm and MCpmk.
 Anderson, T W (1963). "Asymptotic theory for principal component analysis". 
 The Annals of Mathematical Statistics, 34, 122-148.
 
-Jackson, J E (1991). "A user's guide to principal components".John Wiley and Sons.
+Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
 
-Rencher,A C (2002) "Methods of Multivariate Analysis". Second edition. John Wiley and Sons.
+Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
 Wang F, Chen J (1998). "Capability index using principal components analysis." Quality Engineering, 11, 21-27.
 
@@ -111,43 +111,44 @@ Principal Component Analysis.Second edition. Springer Series in Statistics.
 }
 \examples{
 ######Example 1########
-data(dataset1)
+data("dataset1")
 x<-dataset1
-Target<-c(30, 70, 15, 12, 120) 
-LSL<-c(24, 60, 10, 8, 100)
-USL<-c(36, 80, 20, 16, 140)
-alpha<-0.05
+Target <- c(30, 70, 15, 12, 120) 
+LSL <- c(24, 60, 10, 8, 100)
+USL <- c(36, 80, 20, 16, 140)
+alpha <- 0.05
 
 # Computing the Wang and Chen (1998) Multivariate Process Capability Indices (MPCI)
 # using the Bartlett's test to select how many principal components.
 wangMPCI(x,LSL,USL,
          Target,
-		 alpha=alpha,
-		 Method=4)
+		 alpha = alpha,
+		 Method = 4)
 
 # Computing the Wang and Chen (1998) using the default method (Method 1 or
 # Percentage) and value of alpha
 wangMPCI(x,LSL,USL)
 
 ######Example 2########
-Target<-c(2.2, 304.8, 304.8) 
-LSL<-c(2.1, 304.5, 304.5)
-USL<-c(2.3, 305.1, 305.1)
-x<-matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
+Target <- c(2.2, 304.8, 304.8) 
+LSL <- c(2.1, 304.5, 304.5)
+USL <- c(2.3, 305.1, 305.1)
+x <- matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
 ,304.728,304.704,304.713,304.721,304.724,304.670,304.699,304.791,304.737
 ,304.859,304.798,304.746,304.680,304.719,304.767,304.792,304.753,304.816
-,304.754,304.822),nrow=10)
+,304.754,304.822),nrow = 10) # Matrix with three columns (quality 
+# characteristics) and ten rows (number observations) 
 
 # Computing the Wang and Chen (1998) Multivariate Process Capability Indices (MPCI)
 # whit specific value of npc
 wangMPCI(x,LSL,USL,
          Target,
-		 npc=2)
+		 npc = 2)
 
 # Working with the MCp index
-a<-wangMPCI(x,LSL,USL,
+a <- wangMPCI(x,LSL,USL,
          Target,
-		 npc=2)$MCp; print(a)
+		 npc = 2)$MCp; print(a)
 
 # Computing the index using only x and the specification limits (LSL and USL).
 rm(Target);rm(npc) #Removing the parameters Target and npc previously defined.

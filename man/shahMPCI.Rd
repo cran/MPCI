@@ -63,23 +63,24 @@ Edgar Santos Fernandez, Michele Scagliarini.
 taamMPCI
 }
 \examples{
-alpha<-0.0027
-Target<-c(2.2, 304.8, 304.8) 
-LSL<-c(2.1, 304.5, 304.5)
-USL<-c(2.3, 305.1, 305.1)
-x<-matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
+alpha <- 0.0027
+Target <- c(2.2, 304.8, 304.8) 
+LSL <- c(2.1, 304.5, 304.5)
+USL <- c(2.3, 305.1, 305.1)
+x <- matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
 ,304.728,304.704,304.713,304.721,304.724,304.670,304.699,304.791,304.737
 ,304.859,304.798,304.746,304.680,304.719,304.767,304.792,304.753,304.816
-,304.754,304.822),nrow=10)
+,304.754,304.822),nrow = 10) # Matrix with three columns (quality 
+# characteristics) and ten rows (number observations) 
 
 #Computing the Shahriari et al. (1995) Multivariate Capability Vector
 shahMPCI(x,LSL,USL,Target,alpha)
 
 #Working with the CpM Index
-q<-shahMPCI(x,LSL,USL,Target,alpha)$CpM; print(q)
+q <- shahMPCI(x,LSL,USL,Target,alpha)$CpM; print(q)
 
 #Computing the index using only x and the specification limits (LSL and USL). 
-#The function estimate the Target and assume alpha=0.0027
+#The function estimate the Target and assume alpha = 0.0027
 rm(Target);rm(alpha) #Removing the parameters Target and alpha 
                      #previously defined.
 shahMPCI(x,LSL,USL)

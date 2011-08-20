@@ -199,7 +199,7 @@ MXCpme<-(sum(vMXCpme[1:npc]))/su_we
 vMXCpmke<-MatCpmke*DDe
 MXCpmke<-(sum(vMXCpmke[1:npc]))/su_we
 
-outList = list ("Xekalaki&Perakis(2002) Multivariate Process Capability Indices(PCI) based on PCA",
+outList = list ("Xekalaki and Perakis (2002) Multivariate Process Capability Indices(PCI) based on PCA",
 "number of principal components"=npc,
 "MCp"=MXCpe,"MCpk"=MXCpke,"MCpm"=MXCpme,"MCpmk"=MXCpmke)
 print(outList)
