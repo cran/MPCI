@@ -26,8 +26,8 @@ Wang (2005) MPCI
 \tabular{ll}{
 Package: \tab MPCI\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2011-07-01\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2011-12-16\cr
 License: GPL(>=2)\cr
 LazyLoad: yes
 }
@@ -79,24 +79,24 @@ x <- matrix(c(2.196,2.184,2.135,2.140,2.119,2.163,2.145,2.209,2.227,2.277
 # characteristics) and ten rows (number observations) 
 
 #Computing the Shahriari et al. (1995) Multivariate Capability Vector
-shahMPCI(x,LSL,USL,Target,alpha)
+mpci(index="shah",x,LSL,USL,Target,alpha)
 
 #Performing the Taam et al. (1993) Multivariate Capability Index (MCpm)
-taamMPCI(x,LSL,USL,Target,alpha)
+mpci(index="taam",x,LSL,USL,Target,alpha)
 
 #Computing the Wang and Chen (1998) Multivariate Process Capability Indices(MPCI)
 alpha = 0.05
-wangMPCI(x,LSL,USL,Target)
+mpci(index="wang", x,LSL,USL,Target)
 
 #Performing the Xekalaki and Perakis (2002) MPCI.
-xekeMPCI(x,LSL,USL,
-         Target,
-		 Method = 5)
+mpci(index="xeke",x,LSL,USL,
+          Target,
+		  Method = 5)
 
 #Computing the Wang (2005) MPCI
-wangwMPCI(x,LSL,USL,
-         Target,
-		 Method = 1,
-		 alpha = 0.05)
+mpci(index="wangw",x,LSL,USL,
+          Target,
+		  Method = 1,
+		  alpha = 0.05)
 
 }
