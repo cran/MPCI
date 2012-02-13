@@ -16,12 +16,7 @@ discussed by Wang and Chen (1998).
     \item{\code{X2}}{ tensile strength}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
+
 \references{
 Wang F, Chen J (1998). "Capability index using principal components analysis." Quality Engineering, 11, 21-27.
 }

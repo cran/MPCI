@@ -91,7 +91,7 @@ mpci(index="wang", x,LSL,USL,Target)
 #Performing the Xekalaki and Perakis (2002) MPCI.
 mpci(index="xeke",x,LSL,USL,
           Target,
-		  Method = 5)
+		  Method = 2)
 
 #Computing the Wang (2005) MPCI
 mpci(index="wangw",x,LSL,USL,
