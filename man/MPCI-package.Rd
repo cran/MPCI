@@ -26,16 +26,16 @@ Wang (2005) MPCI
 \tabular{ll}{
 Package: \tab MPCI\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2011-12-16\cr
+Version: \tab 1.0.4\cr
+Date: \tab 2011-04-25\cr
 License: GPL(>=2)\cr
 LazyLoad: yes
 }
 }
 \author{
-Edgar Santos Fernandez, Michele Scagliarini.
+Edgar Santos-Fernandez, Michele Scagliarini.
 
-Maintainer: Edgar Santos Fernandez <edgar.santos@etecsa.cu>
+Maintainer: Edgar Santos-Fernandez <edgar.santos@etecsa.cu>
 }
 \references{
 Anderson, T W (1963). "Asymptotic theory for principal component analysis". 
@@ -48,6 +48,8 @@ Hubele N, Shahriari H, Cheng C (1991). "A bivariate process Capability vector". 
 Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
 
 Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
+
+Santos-Fernandez E, Scagliarini M (2012). "MPCI: An R Package for Computing Multivariate Process Capability Indices". Journal of Statistical Software, 47(7), 1-15, URL http://www.jstatsoft.org/v47/i07/.
 
 Scagliarini M (2011). "Multivariate process capability using principal component analysis in the presence of measurement errors." AStA Advances in Statistical Analysis, 95, 346-357.
 

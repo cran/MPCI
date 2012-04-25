@@ -133,6 +133,8 @@ Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons
 
 Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
+Santos-Fernandez E, Scagliarini M (2012). "MPCI: An R Package for Computing Multivariate Process Capability Indices". Journal of Statistical Software, 47(7), 1-15, URL http://www.jstatsoft.org/v47/i07/.
+
 Scagliarini M (2011). "Multivariate process capability using principal component analysis in the presence of measurement errors." AStA Advances in Statistical Analysis, 95, 346-357.
 
 Shahriari H, Hubele N, Lawrence F (1995). "A multivariate process capability vector." Proceedings of the 4th Industrial Engineering Research Conference, 1, 304-309.
@@ -150,7 +152,7 @@ Proceedings of the Joint Statistical Meetings of the American Statistical Associ
 
 }
 \author{
-Edgar Santos Fernandez, Michele Scagliarini.
+Edgar Santos-Fernandez, Michele Scagliarini.
 }
 \note{
 The results can be different according to the Methods to compute the npc.
