@@ -13,6 +13,8 @@ Shahriari et al. (1995) Multivariate Capability Vector.
 
 Taam et al. (1993) Multivariate Capability Index (MCpm).
 
+Pan and Lee (2010) correction of the Taam et al. (1993)(NMCpm).
+
 and the followings based on Principal Component Analysis (PCA):
 
 Wang and Chen (1998) Multivariate Process Capability Indices (MPCI),
@@ -46,6 +48,8 @@ Chen H (1994). "A multivariate process Capability index over a rectangular solid
 Hubele N, Shahriari H, Cheng C (1991). "A bivariate process Capability vector". In JB. Keats and DC.Montgomery (Eds.) "Statistical Process Control in Manufacturing".Marcel Dekker,New York.
 
 Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
+
+Pan J N, Lee C Y (2010). "New capability indices for evaluating the performance of multivariate manufacturing processes". Quality and Reliability Engineering International 26(1)
 
 Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
@@ -85,6 +89,9 @@ mpci(index="shah",x,LSL,USL,Target,alpha)
 
 #Performing the Taam et al. (1993) Multivariate Capability Index (MCpm)
 mpci(index="taam",x,LSL,USL,Target,alpha)
+
+#Performing the Pan and Lee. (2010) correction of the Multivariate Capability Index (NMCpm)
+mpci(index="pan",x,LSL,USL,Target,alpha)
 
 #Computing the Wang and Chen (1998) Multivariate Process Capability Indices(MPCI)
 alpha = 0.05

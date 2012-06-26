@@ -13,6 +13,8 @@ Shahriari et al. (1995) Multivariate Capability Vector.
 
 Taam et al. (1993) Multivariate Capability Index (MCpm).
 
+Pan and Lee (2010) correction of the Taam et al. (1993)(NMCpm).
+
 and the followings based on Principal Component Analysis (PCA):
 
 Wang and Chen (1998) Multivariate Process Capability Indices (MPCI),
@@ -24,7 +26,7 @@ Wang (2005) MPCI
 }
 \usage{
 
- mpci(index,x,LSL,USL,Target,npc,alpha,Method,perc,graphic,...)
+ mpci(index, x, LSL, USL, Target, npc, alpha, Method, perc, graphic, xlab, ylab, ...)
 
 }
 
@@ -60,6 +62,12 @@ is the percent of Cumulative Proportion of explained variance specified by the u
 }
   \item{graphic}{
 allows in bivariate case the graphical representation. 
+}
+  \item{xlab}{
+x axis label. 
+}
+  \item{ylab}{
+y axis label. 
 }
   \item{...}{
 others parameters
@@ -115,7 +123,7 @@ The second component of the vector is defined as the significance level of a Hot
 Values of PV close to zero indicate that the center of the process is far from the engineering target value.
 The third component of the vector summarizes a comparison of the location of the modified process region and the tolerance region. It indicates whether any part of the modified process region falls outside the engineering specifications.
 
-When index="taam" the function return the value of MCpm. When the process mean vector equals the target vector, and the index has the value 1, then 99.73 percent of the process values lie within the modified tolerance region.
+When index="taam" or "pan" the function return the value of MCpm or NMCpm. When the process mean vector equals the target vector, and the index has the value 1, then 99.73 percent of the process values lie within the modified tolerance region.
 
 For values of index="wang", "xeke" or "wangw" function return the followings indices: Mcp, MCpk, MCpm and MCpmk.
 When all indices are greater than 1, the process is capable.
@@ -130,6 +138,8 @@ Chen H (1994). "A multivariate process Capability index over a rectangular solid
 Hubele N, Shahriari H, Cheng C (1991). "A bivariate process Capability vector". In JB. Keats and DC.Montgomery (Eds.) "Statistical Process Control in Manufacturing".Marcel Dekker,New York.
 
 Jackson, J E (1991). "A user's guide to principal components". John Wiley & Sons. New York.
+
+Pan J N, Lee C Y (2010). "New capability indices for evaluating the performance of multivariate manufacturing processes". Quality and Reliability Engineering International 26(1)
 
 Rencher,A C (2002) "Methods of Multivariate Analysis". 2nd Ed. John Wiley & Sons. New York.
 
@@ -194,7 +204,8 @@ alpha <- 0.0027
 Target <- c(2.2, 304.8, 304.8) 
 a <- mpci(index="taam",x,LSL,USL,Target,alpha)
 
-
+#Performing the Pan and Lee. (2010) correction of the Multivariate Capability Index (NMCpm)
+mpci(index="pan",x,LSL,USL,Target,alpha)
 
 # Using the indices based on based on PCA
 

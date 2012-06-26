@@ -1,5 +1,5 @@
-mpci<- function(index = c("shah", "taam", "wang","xeke","wangw"),x,
-                LSL,USL,Target,npc,alpha,Method,perc,graphic,...){   
+mpci<- function(index = c("shah", "taam", "pan", "wangw", "wang", "xeke", "wangw"),x ,
+                LSL, USL, Target, npc, alpha, Method, perc, graphic, xlab = "Var 1", ylab = "Var 2", ...){   
 
      index <- match.arg(index)
 
@@ -8,6 +8,7 @@ mpci<- function(index = c("shah", "taam", "wang","xeke","wangw"),x,
      m <- nrow(x) # sample number
      Xmv <- colMeans(x) # mean vector
      S <- cov(x) # covariance matrix
+	 rr <- cor(x) # correlation matrix
      Sinv <- solve(S)
      s3<-matrix(0,p-1,p-1)
 	 ###
@@ -36,8 +37,28 @@ mpci<- function(index = c("shah", "taam", "wang","xeke","wangw"),x,
              LPL[i,1] <- Xmv[i] - sqrt((det(s3) * (qchisq((1 - alpha),df = p))) / det(Sinv))
              UPL[i,1] <- Xmv[i] + sqrt((det(s3) * (qchisq((1 - alpha),df = p))) / det(Sinv))
              }
-         #### Making the largest ellipsoid within the tolerance region centered at Target
-         hi <- (USL[1] - LSL[1]) / 2
+         
+		 plot(x,xlim=c(min(LSL[1],LPL[1]),max(USL[1],UPL[1]) ), ylim=c(min(LSL[2],LPL[2]), max(USL[2],UPL[2])),xlab = xlab, ylab = ylab)
+         rect( xleft <- LSL[1], xright <- LSL[2], yleft <- USL[1], yright <- USL[2], border = 2)
+         points(Target[1],Target[2], pch=3, col=2, cex=0.7)
+		 points(Xmv[1],Xmv[2], pch=16, col=1, cex=0.7)
+		 
+		 ### Making the confidence ellipsoid
+	     Ue<-eigen(S, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
+         DDe<-eigen(S, symmetric=TRUE,EISPACK = TRUE)$values
+
+         angle <- seq(0, 2 * pi, length.out = 200)
+         ch <- cbind(sqrt(qchisq(1 - alpha,2)) * cos(angle),sqrt(qchisq(1 - alpha,2)) * sin(angle))
+         lines(t(Xmv - ((Ue %*% diag(sqrt(DDe))) %*% t(ch))),type = "l")
+		 
+		 if(index=="shah"){
+			rect( xleft <- LPL[1], xright <- LPL[2], yleft <- UPL[1], yright <- UPL[2],lty = 2, border = 4) 
+			cur <- "Modified Process Region"
+		 }
+		 
+		 #### Making the largest ellipsoid within the tolerance region centered at Target
+         if(index=="taam"){
+		 hi <- (USL[1] - LSL[1]) / 2
          lo <- (USL[2] - LSL[2]) / 2
          Xm <- colMeans(rbind(LSL, USL))
          nn <- 201
@@ -48,24 +69,37 @@ mpci<- function(index = c("shah", "taam", "wang","xeke","wangw"),x,
          pro <- r * cbind(cos(ang), sin(ang))
          al <- alpha * pi/180
          xx <- pro %*% rbind(c(cos(al), sin(al)), c(-sin(al), cos(al))) + cbind(rep(Xm[1], nn),rep(Xm[2], nn))
-	     plot(xx,xlim=c(min(LSL[1],LPL[1]),max(USL[1],UPL[1]) ), ylim=c(min(LSL[2],LPL[2]), max(USL[2],UPL[2])),xlab = "Var 1", ylab = "Var 2", lty = 2, type = "n") ; polygon(xx, border = 4)
- 
-         ### Making the confidence ellipsoid
-	     Ue<-eigen(S, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
-         DDe<-eigen(S, symmetric=TRUE,EISPACK = TRUE)$values
+	     points(xx, type="l", lty = 2, col=4)
+		 cur <- "Modified Tolerance Region"
+		}
+         
+	 
+		 ### Making ellipsoid from Pan index	
+	     if(index=="pan"){
+			A <- matrix(0,p,p)
+		
+			 for (i in 1 :nrow(rr)){
+				 for (j in 1 :ncol(rr)){
+					 A[i,j] <- rr[i,j] * ((USL[i] - LSL[i])/(2 * sqrt(qchisq((1 - alpha),p)))) * ((USL[j] - LSL[j])/(2 * sqrt(qchisq((1 - alpha), p))))
+		   		  }         
+			  }
+		 	 
+		 Ue<-eigen(A, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
+         DDe<-eigen(A, symmetric=TRUE,EISPACK = TRUE)$values
 
          angle <- seq(0, 2 * pi, length.out = 200)
          ch <- cbind(sqrt(qchisq(1 - alpha,2)) * cos(angle),sqrt(qchisq(1 - alpha,2)) * sin(angle))
-         lines(t(Xmv - ((Ue %*% diag(sqrt(DDe))) %*% t(ch))),type = "l")
-	 
+         lines(t(Target - ((Ue %*% diag(sqrt(DDe))) %*% t(ch))),type = "l",lty = 2, col=4)
+		 cur <- "Modified Tolerance Region"
+		 }
+		 
+		
 	     ###
-	     points(x)
-         rect( xleft <- LSL[1], xright <- LSL[2], yleft <- USL[1], yright <- USL[2], border = 2)
-         rect( xleft <- LPL[1], xright <- LPL[2], yleft <- UPL[1], yright <- UPL[2], border = 3) 
-         legend(locator(1),cex=0.85,c("Process Region","Tolerance Region","Modified Process Region", "Modified Tolerance Region"),lty=c(1,1,1,1),col=c(1,2,3,4))
+	     
+         legend(locator(1),cex=0.85,c("Process Region","Tolerance Region",paste(cur),"Target","Process Mean"),lty=c(1,1,2,NA,NA),pch=c(NA,NA,NA,3,16),col=c(1,2,4,2,1))
 
-         print(list("CpM index of Shahriari et al. (1995) is the ratio of the Tolerance Region and the Modified Process Region"))
-         print(list("MCpm index of Taam et al. (1993) is the ratio of the ellipsoids: Modified Tolerance Region and the Process Region "))
+         #print(list("CpM index of Shahriari et al. (1995) is the ratio of the Tolerance Region and the Modified Process Region"))
+         #print(list("MCpm index of Taam et al. (1993) is the ratio of the ellipsoids: Modified Tolerance Region and the Process Region "))
  
      }	 
 	 
@@ -119,7 +153,23 @@ mpci<- function(index = c("shah", "taam", "wang","xeke","wangw"),x,
          return(list ("Taam et al. (1993) Multivariate Capability Index (MCpm)","MCpm"=MCpm))
      }
 	 
+     if (index=="pan") {
+	     A <- matrix(0,p,p)
+	 	 for (i in 1 :nrow(rr)){
+			for (j in 1 :ncol(rr)){
+             A[i,j] <- rr[i,j]*((USL[i] - LSL[i]) / (2 * sqrt(qchisq((1 - alpha), p)))) * ((USL[j]-LSL[j])/(2 * sqrt(qchisq((1 - alpha),p))))
+			}         
+		}
+	 	 
+	     VTR <- det(A) ^ 0.5 * ((pi * qchisq(1 - alpha, p)) ^ (p / 2))/gamma(p / 2 + 1)# Vol. Tolerance Region   
+         VE <- det(S) ^ 0.5 * ((pi * qchisq(1 - alpha, p)) ^ (p / 2))/gamma(p / 2 + 1) # Vol. Estimated 99.73% Process Region
+         NMCp <- VTR / VE
+         D <- (1 + m / (m - 1) * (t(Target - Xmv) %*% solve(S) %*% (Target - Xmv))) ^ 0.5
+         NMCpm <- NMCp / D
+		 
+		 return(list ("Pan and Lee (2010) Multivariate Capability Index (NMCpm)","NMCpm"=NMCpm))
 	 
+	 }
      if (index == "wang" || index == "xeke"|| index == "wangw") {	 
 	 
          spec <- cbind(LSL,USL) # matrix of specifications
