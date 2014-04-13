@@ -1,10 +1,10 @@
-4a8603ad8cb1d9de1eaec401dd36ee7e *DESCRIPTION
+05643292689880cac193d32fb03f1c22 *DESCRIPTION
 0f714634d9b6e945d6b30e5d6276b22e *NAMESPACE
 8f00c504f9e0b6698637deb1da90e3ec *R/mpci.R
 e76d587a3b8c471ed8ec03d044cd78d1 *data/dataset1.rda
 866594e44dc6bebc19d74cd2c4d5a3f4 *data/dataset2.rda
 8095600bd9a7f2ec13dd1b35d4420c8c *inst/CITATION
-83f87c8fdd3d9a327203fdf573fe1929 *man/MPCI-package.Rd
+50f284c11bb90d7b5de0f80d4e4079e5 *man/MPCI-package.Rd
 9eca3d07429c609d26d0ae52f6e4053e *man/dataset1.Rd
 758a6760bff6db4b6aa1240f69d5279b *man/dataset2.Rd
 e395116b9e4290e802931ad04cbedcf6 *man/mpci.Rd

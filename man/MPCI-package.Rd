@@ -37,7 +37,7 @@ LazyLoad: yes
 \author{
 Edgar Santos-Fernandez, Michele Scagliarini.
 
-Maintainer: Edgar Santos-Fernandez <edgar.santos@etecsa.cu>
+Maintainer: Edgar Santos-Fernandez <edgar.santosfdez@gmail.com>
 }
 \references{
 Anderson, T W (1963). "Asymptotic theory for principal component analysis". 
