@@ -5,7 +5,7 @@
 Real bivariate data set 
 }
 \description{
-This example represent the measurements on the brinell hardness (X1) and tensile strength (X2) 
+This example represents the measurements on the brinell hardness (X_1) and tensile strength (X_2) 
 discussed by Wang and Chen (1998).
 }
 \usage{data(dataset2)}

@@ -44,8 +44,8 @@ mpci<- function(index = c("shah", "taam", "pan", "wangw", "wang", "xeke", "wangw
 		 points(Xmv[1],Xmv[2], pch=16, col=1, cex=0.7)
 		 
 		 ### Making the confidence ellipsoid
-	     Ue<-eigen(S, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
-         DDe<-eigen(S, symmetric=TRUE,EISPACK = TRUE)$values
+	     Ue<-eigen(S, symmetric=TRUE)$vectors    # eigenvectors
+         DDe<-eigen(S, symmetric=TRUE)$values
 
          angle <- seq(0, 2 * pi, length.out = 200)
          ch <- cbind(sqrt(qchisq(1 - alpha,2)) * cos(angle),sqrt(qchisq(1 - alpha,2)) * sin(angle))
@@ -84,8 +84,8 @@ mpci<- function(index = c("shah", "taam", "pan", "wangw", "wang", "xeke", "wangw
 		   		  }         
 			  }
 		 	 
-		 Ue<-eigen(A, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
-         DDe<-eigen(A, symmetric=TRUE,EISPACK = TRUE)$values
+		 Ue<-eigen(A, symmetric=TRUE)$vectors    # eigenvectors
+         DDe<-eigen(A, symmetric=TRUE)$values
 
          angle <- seq(0, 2 * pi, length.out = 200)
          ch <- cbind(sqrt(qchisq(1 - alpha,2)) * cos(angle),sqrt(qchisq(1 - alpha,2)) * sin(angle))
@@ -178,8 +178,8 @@ mpci<- function(index = c("shah", "taam", "pan", "wangw", "wang", "xeke", "wangw
 	         perc<-0.8
 	     }
  
-         Ue<-eigen(S, symmetric=TRUE, EISPACK = TRUE)$vectors    # eigenvectors
-         DDe<-eigen(S, symmetric=TRUE,EISPACK = TRUE)$values     # eigenvalues
+         Ue<-eigen(S, symmetric=TRUE)$vectors    # eigenvectors
+         DDe<-eigen(S, symmetric=TRUE)$values     # eigenvalues
 
          if(!missing(npc)) { 
              if(npc<=0 || npc>p || !is.numeric(npc) || npc != as.integer(npc) || length(npc) > 1){

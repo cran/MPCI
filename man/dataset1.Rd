@@ -5,7 +5,7 @@
 Simulated data set
 }
 \description{
-Dataset used in examples.
+This is a dataset used in the examples.
 }
 \usage{data(dataset1)}
 \format{

@@ -1,2 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 
+importFrom("graphics", "legend", "lines", "locator", "plot", "points","rect")
+importFrom("stats", "cor", "cov", "pf", "qchisq")

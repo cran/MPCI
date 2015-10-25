@@ -6,34 +6,19 @@
 Multivariate Process Capability Indices (MPCI)
 }
 \description{
-The aim of the MPCI package is the approach to the proposed Multivariate Process Capability Indices (MPCI).
-Perform the followings indices:
+It allows the computation of the following Multivariate Process Capability Indices (MPCI):
+
 
 Shahriari et al. (1995) Multivariate Capability Vector.
-
 Taam et al. (1993) Multivariate Capability Index (MCpm).
-
 Pan and Lee (2010) correction of the Taam et al. (1993)(NMCpm).
-
 and the followings based on Principal Component Analysis (PCA):
-
 Wang and Chen (1998) Multivariate Process Capability Indices (MPCI),
-
 Xekalaki and Perakis (2002) MPCI.
-
 Wang (2005) MPCI
 
 }
-\details{
-\tabular{ll}{
-Package: \tab MPCI\cr
-Type: \tab Package\cr
-Version: \tab 1.0.4\cr
-Date: \tab 2011-04-25\cr
-License: GPL(>=2)\cr
-LazyLoad: yes
-}
-}
+
 \author{
 Edgar Santos-Fernandez, Michele Scagliarini.
 
@@ -72,7 +57,7 @@ Proceedings of the Joint Statistical Meetings of the American Statistical Associ
 
 }
 \keyword{ package }
-\seealso{ MEWMA and MCUSUM package}
+\seealso{ MSQC package}
 \examples{
 alpha <- 0.0027
 Target <- c(2.2, 304.8, 304.8) 

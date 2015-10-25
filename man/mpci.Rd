@@ -5,22 +5,13 @@
 Multivariate Process Capability Index
 }
 \description{
-Performs capability indices for multivariate process in which the variables are correlated.
-
-Present the most accepted indices such as: 
-
+It performs capability indices for multivariate processes using the following approaches: 
 Shahriari et al. (1995) Multivariate Capability Vector.
-
 Taam et al. (1993) Multivariate Capability Index (MCpm).
-
 Pan and Lee (2010) correction of the Taam et al. (1993)(NMCpm).
-
 and the followings based on Principal Component Analysis (PCA):
-
 Wang and Chen (1998) Multivariate Process Capability Indices (MPCI),
-
 Xekalaki and Perakis (2002) MPCI.
-
 Wang (2005) MPCI
 
 }
@@ -74,14 +65,11 @@ others parameters
 }
 }
 \details{
-When the parameter Target is not specified, then is estimated of centered way as Target=LSL+(USL-LSL)/2. 
+When the parameter Target is not specified, then it will be estimated as Target=LSL + (USL - LSL) / 2. 
 
-On the other hand, if alpha is missing the function assume alpha=0.0027 for the first two indices 
-
-and 0.05 for the others.
+If alpha is missing the function assume alpha=0.0027 for the first two indices and 0.05 for the others.
 
 A priori, the user can choose the number of Principal Components using: summary(princomp(x))
-
 
 In order to work with the number of Principal Components (npc), the user can:
 
@@ -89,15 +77,14 @@ Specify the value of npc.
 
 Else, choose between five methods described below (without introduce a value of npc).
 
-If npc and Method is not specified the function works with Method 1 (default Method=1).
+If npc and Method is not specified the function works uses Method 1 (default Method = 1).
 
-In this case, the user could specify other desired percentage different of the 80%(e.g.: perc=0.90).
+In this case, the user could specify a desired percentage other than the default 80%(e.g.: perc=0.90).
 
 On the other hand, if npc and Method are both specified the function computes the MPCI using the 
 number of principal components. 
 
-
-Can be used one of the five following methods (modified of Rencher (2002)):
+It can be used one of the five methods (modified of Rencher (2002)):
 
 Method 1 or Percentage: guarantees at least the 80 percent of Cumulative Proportion of explained variance.
 (or other percent specified by the user with the argument perc) 
@@ -108,18 +95,18 @@ eigenvalues.
 Method 3 or Scree: using the Scree Graph (plot Eigenvalue number vs. Eigenvalue size) user can choose the 
 principal components to retain.
 
-Method 4 or Bartlett.test: implements the Bartlett's test to ignore the principal components not significantly 
+Method 4 or Bartlett.test: It implements the Bartlett's test to ignore the principal components not significantly 
 different to the rest.
 
-Method 5 or Anderson.test: computes the Anderson's test to ignore the principal components not significantly 
+Method 5 or Anderson.test: it computes the Anderson's test to ignore the principal components not significantly 
 different to the each other.   
 
 
 }
 \value{
-Using the index="shah" the function return a vector of three componenets (CpM; PV; LI). 
-The First (CpM) is a ratio of areas or volumes. A value of CpM higher than one indicate that the modified process region is smaller than the engineering tolerance region. 
-The second component of the vector is defined as the significance level of a Hotelling T2 statistic computed under the assumption that the center of the engineering specifications is considered to be the true underlying mean of the process.
+Using the index="shah" the function return a vector composed by of three components (CpM; PV; LI). 
+The First (CpM) is a ratio of the areas or the volumes. A value of CpM higher than one indicate that the modified process region is smaller than the engineering tolerance region. 
+The second component of the vector is defined as the significance level of a Hotelling T^2 statistic computed under the assumption that the center of the engineering specifications is considered to be the true underlying mean of the process.
 Values of PV close to zero indicate that the center of the process is far from the engineering target value.
 The third component of the vector summarizes a comparison of the location of the modified process region and the tolerance region. It indicates whether any part of the modified process region falls outside the engineering specifications.
 
